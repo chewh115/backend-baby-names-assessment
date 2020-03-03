@@ -109,7 +109,8 @@ def main(args):
     else:
         for file in file_list:
             names = '\n'.join(extract_names(file))
-            print(names)
+            with open(file + '.summary', 'w') as f:
+                f.write(names)
 
 
 if __name__ == '__main__':
