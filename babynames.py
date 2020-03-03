@@ -6,9 +6,6 @@ __author__ = "chewh115"
 import argparse
 import re
 import sys
-if sys.version_info[0] < 3:
-    raise RuntimeError("Hey! Use Python 3!")
-
 # BabyNames python coding exercise.
 
 # Copyright 2010 Google Inc.
@@ -51,11 +48,11 @@ def extract_names(filename):
     order. ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
     """
     names = []
-    year = filename[4:8]
-    print(year)
-    names.append(year)
     with open(filename, 'r') as f:
         text = f.read()
+        year_match = re.search(r'Popularity\sin\s(\d\d\d\d)', text)
+        year = year_match.group(1)
+        names.append(year)
         name_search = r'<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>'
         name_matches = re.findall(name_search, text)
         for name_tuple in name_matches:
@@ -67,7 +64,6 @@ def extract_names(filename):
             if girl_name not in names:
                 names.append(girl_name + ' ' + ranking)
     names.sort()
-    print(names)
     return names
 
 
