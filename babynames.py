@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+__author__ = "chewh115"
+
+import argparse
+import re
+import sys
+if sys.version_info[0] < 3:
+    raise RuntimeError("Hey! Use Python 3!")
+
 # BabyNames python coding exercise.
 
 # Copyright 2010 Google Inc.
@@ -10,11 +18,6 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
-__author__ = "chewh115"
-
-import sys
-import re
-import argparse
 
 """
 Define the extract_names() function below and change main()
